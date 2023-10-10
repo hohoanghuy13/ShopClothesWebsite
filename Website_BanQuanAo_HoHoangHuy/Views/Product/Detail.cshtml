@@ -1,0 +1,104 @@
+﻿@model Website_BanQuanAo_HoHoangHuy.Models.SanPham
+
+@{
+    ViewBag.Title = "Detail";
+}
+<div class="container">
+    <div class="linkBack">
+        <ul class="nav">
+            <!-- Chỉ hiển thị khi có đường dẫn-->
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Trang chủ</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">/ @Model.LoaiSanPham.TenLoaiSP</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">/ @Model.TenSanPham</a></li>
+        </ul>
+    </div>
+    <!--  -->
+    <div class="row">
+        <div class="col-md-6 d-flex">
+            <div class="list-img p-0" style="width: 20%;">
+                <ul class="p-0" style="list-style: none;">
+                    <li class="nav-item border my-3" style="height: 100px; width: 100px;">
+                        <a href="#">
+                            <img src="https://product.hstatic.net/1000281824/product/5a4a4fb53d084816ba7680c6de385414_021c797e83ba4ea09e24a9032df38ce3_compact.jpeg"
+                                 alt="" class="mw-100 mh-100">
+                        </a>
+                    </li>
+                    <li class="nav-item border my-3" style="height: 100px; width: 100px;">
+                        <a href="#">
+                            <img src="https://product.hstatic.net/1000281824/product/5a4a4fb53d084816ba7680c6de385414_021c797e83ba4ea09e24a9032df38ce3_compact.jpeg"
+                                 alt="" class="mw-100 mh-100">
+                        </a>
+                    </li>
+                    <li class="nav-item border my-3" style="height: 100px; width: 100px;">
+                        <a href="#">
+                            <img src="https://product.hstatic.net/1000281824/product/5a4a4fb53d084816ba7680c6de385414_021c797e83ba4ea09e24a9032df38ce3_compact.jpeg"
+                                 alt="" class="mw-100 mh-100">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"
+                 style="width: 80%;">
+                <!-- <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div> -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://product.hstatic.net/1000281824/product/5a4a4fb53d084816ba7680c6de385414_021c797e83ba4ea09e24a9032df38ce3.jpeg"
+                             class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://product.hstatic.net/1000281824/product/z4072754167909_ba003c2776357c34d6f992d0e18844a8_a2cf6a6353cf40a3ad15f6c5edbea592.jpg"
+                             class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://product.hstatic.net/1000281824/product/nta101_odetzrd3-1-q8bg-hinh_mat_sau-0_a3cd07482e6c4afbbf2325c405424f78.jpeg"
+                             class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12 d-flex-col">
+            <!--All nội dung m-2  -->
+            <h3 class="m-2"><b>@Model.TenSanPham</b></h3>
+            <h3 class="m-2 text-danger"><b>@Model.Gia</b></h3>
+            <div class="m-2 d-flex">
+                <p style="margin-right: 100px;">SIZE: @Model.KichThuoc</p>
+            </div>
+            <hr>
+            <div class="m-2 d-flex">
+                <div class="wrapper">
+                    <span class="minus">-</span>
+                    <span class="num">01</span>
+                    <span class="plus">+</span>
+                </div>
+                <div style="width: 70%;">
+                    <button class="btn btn-dark rounded-0 mx-3 px-4" style="padding: 12.35px;">Mua hàng</button>
+                </div>
+            </div>
+            <div class="m-2 mt-5">
+                <h6 class="my-3"><b>Hướng dẫn bảo quản sản phẩm</b></h6>
+                <p class="mb-1">Giặt ở nhiệt độ bình thường, với đồ có màu tương tự.</p>
+                <p class="mb-1">Không dùng hóa chất tẩy lên sản phẩm</p>
+                <p class="mb-1">Bạn nên giặt tay và LỘN NGƯỢC ÁO trước khi giặt.</p>
+                <p class="mb-1">Không ủi trực tiếp lên hình in.</p>
+                <p class="mb-1">
+                    Hạn chế sử dụng máy sấy và ủi (nếu có) chỉ nên ủi lên vải hoặc sử dụng bàn ủi
+                    hơi nước ở nhiệt độ thích hợp.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

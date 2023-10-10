@@ -43,14 +43,17 @@
                             <a class="nav-link text-white" href="/Product/Shirt/">Shirt</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-white" href="/Product/Polo/">Polo</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="#">Thông tin tài khoản</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">Giỏ hàng</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" action="/Product/Index/">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="@ViewBag.Search" name="search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
