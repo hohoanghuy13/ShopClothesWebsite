@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+<div class="container mx-auto">
+    <h2>Thêm sản phẩm mới</h2>
+    <form action="/Admin/Product/Create" method="post">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <label for="MaLoaiSP" class="form-label">Loại sản phẩm</label>
+                <select id="MaLoaiSP" name="MaLoaiSP" class="form-control">
+                    <option selected>Chọn loại sản phẩm</option>
+                    @foreach (var item in ViewBag.LoaiSP)
+                    {
+                        <option value="@item.MaLoaiSP">@item.TenLoaiSP</option>
+                    }
+                </select>
+            </div>
+            <div class="col-12 mb-3">
+                <label for="TenSanPham" class="form-label">Tên sản phẩm</label>
+                <input type="text" id="TenSanPham" name="TenSanPham" placeholder="Tên sản phẩm" class="form-control" />
+            </div>
+            <div class="col-12 mb-3">
+                <label for="Gia" class="form-label">Giá</label>
+                <input type="text" id="Gia" name="Gia" placeholder="Giá" class="form-control" />
+            </div>
+            <div class="col-12 mb-3">
+                <label for="KichThuoc" class="form-label">Kích thước</label>
+                <select class="form-control" id="KichThuoc" name="KichThuoc">
+                    <option selected>Chọn kích thước</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <div class="col-12 mb-3">
+                <label for="HinhAnh" class="form-label">Hình ảnh sản phẩm</label>
+                <input type="text" id="HinhAnh" name="HinhAnh" placeholder="Hình ảnh" class="form-control" />
+            </div>
+            <div class="col-12 mb-3">
+                <label for="SoLuongKho" class="form-label">Số lượng nhập kho</label>
+                <input type="number" id="SoLuongKho" name="SoLuongKho" placeholder="Số lượng nhập kho" class="form-control" />
+            </div>
+            <div class="col-12 mb-3">
+                <label for="MoTa" class="form-label">Mô tả sản phẩm</label>
+                <textarea id="MoTa" name="MoTa" placeholder="Mô tả sản phẩm" class="form-control" cols="10" rows="10">Mô tả</textarea>
+            </div>
+            <div class="col-12 mb-3">
+                <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+                <a href="/Admin/Product/Index/" class="btn btn-light">Trở lại trang chủ</a>
+            </div>
+        </div>
+    </form>
+</div>
+

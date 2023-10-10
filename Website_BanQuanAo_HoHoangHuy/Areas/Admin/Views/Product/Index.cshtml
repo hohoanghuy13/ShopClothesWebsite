@@ -1,0 +1,48 @@
+﻿@model List<Website_BanQuanAo_HoHoangHuy.Models.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+}
+@*Không nên chạy từ trang admin*@
+<div class="p-3">
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <form class="d-flex" action="/Admin/Product/Index">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" value="@ViewBag.Search">
+                <button type="submit" class="btn btn-outline-success">Search</button>
+            </form>
+        </div>
+    </nav>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Kích thước</th>
+                <th>Giá</th>
+                <th>Số lượng tồn kho</th>
+                <th>Loại sản phẩm</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaSanPham</td>
+                    <td><a href="/Admin/Product/Detail/@item.MaSanPham" class="link">@item.TenSanPham</a></td>
+                    <td>@item.KichThuoc</td>
+                    <td>@item.Gia</td>
+                    <td>@item.SoLuongKho</td>
+                    <td>@item.LoaiSanPham.TenLoaiSP</td>
+                    <td>
+                        <a href="/Admin/Product/Edit/@item.MaSanPham" class="link">Sửa</a>
+                        <a href="/Admin/Product/Delete/@item.MaSanPham" class="link">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Admin/Product/Create/" class="btn btn-primary">Thêm sản phẩm</a>
+</div>
+

@@ -1,0 +1,35 @@
+﻿@model Website_BanQuanAo_HoHoangHuy.Models.SanPham
+@{
+    ViewBag.Title = "Detail";
+}
+<div class="container mx-auto">
+    <h2>Chi tiết sản phẩm @Model.TenSanPham</h2>
+    <table class="table">
+        <tr>
+            <th>Hình ảnh sản phẩm</th>
+            <td>@Model.HinhAnh</td>
+        </tr>
+        <tr>
+            <th>Mã sản phẩm</th>
+            <td>@Model.MaSanPham</td>
+        </tr>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <td>@Model.TenSanPham</td>
+        </tr>
+        <tr>
+            <th>Kích thước</th>
+            <td>@Model.KichThuoc</td>
+        </tr>
+        <tr>
+            <th>Số lượng tồn kho</th>
+            <td>@Model.SoLuongKho</td>
+        </tr>
+        <tr>
+            <th>Mô tả</th>
+            <td>@Model.MoTa</td>
+        </tr>
+    </table>
+    <a href="/Admin/Product/Index" class="btn btn-light">Trở lại trang chủ</a>
+</div>
+
