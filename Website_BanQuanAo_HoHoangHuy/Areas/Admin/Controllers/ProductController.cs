@@ -84,13 +84,15 @@ namespace Website_BanQuanAo_HoHoangHuy.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(SanPham sp)
         {
-            if (sp == null)
-                return View();
-            else
+            if(ModelState.IsValid)
             {
                 db.SanPhams.Add(sp);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Product", "Admin");
+            }    
+            else
+            {
+                return RedirectToAction("Create");
             }    
         }
         public ActionResult Edit(int id)

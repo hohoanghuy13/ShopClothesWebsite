@@ -10,12 +10,21 @@ namespace Website_BanQuanAo_HoHoangHuy.Models
     {
         [Key]
         public int MaSanPham { get; set; }
+        [Required]
         public string TenSanPham { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        [Required]
         public Nullable<float> Gia { get; set; }
+
+        [Required]
         public string KichThuoc { get; set; }
         public string MoTa { get; set; }
+
+        [Required]
         public Nullable<int> SoLuongKho { get; set; }
         public string HinhAnh { get; set; }
+        [Required]
         public int MaLoaiSP { get; set; }
         public virtual LoaiSanPham LoaiSanPham { get; set; }
     }

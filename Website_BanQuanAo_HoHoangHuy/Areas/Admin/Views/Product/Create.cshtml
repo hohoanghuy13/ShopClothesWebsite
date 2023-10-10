@@ -1,7 +1,11 @@
-﻿
+﻿@model Website_BanQuanAo_HoHoangHuy.Models.SanPham
 @{
     ViewBag.Title = "Create";
 }
+@using(Html.BeginForm("Create", "Product", FormMethod.Post))
+            {
+
+            }
 <div class="container mx-auto">
     <h2>Thêm sản phẩm mới</h2>
     <form action="/Admin/Product/Create" method="post">
@@ -10,15 +14,19 @@
                 <label for="MaLoaiSP" class="form-label">Loại sản phẩm</label>
                 <select id="MaLoaiSP" name="MaLoaiSP" class="form-control">
                     <option selected>Chọn loại sản phẩm</option>
-                    @foreach (var item in ViewBag.LoaiSP)
+                    @foreach (var item in Model)
                     {
                         <option value="@item.MaLoaiSP">@item.TenLoaiSP</option>
                     }
                 </select>
             </div>
             <div class="col-12 mb-3">
+                @Html.LabelFor(row => row.TenSanPham, "Tên sản phẩm")
+                @Html.TextBoxFor(row => row.TenSanPham, new {@class = "form-control"})
                 <label for="TenSanPham" class="form-label">Tên sản phẩm</label>
-                <input type="text" id="TenSanPham" name="TenSanPham" placeholder="Tên sản phẩm" class="form-control" />
+                @*<input type="text" id="TenSanPham" name="TenSanPham" placeholder="Tên sản phẩm" class="form-control" />*@
+                @Html.TextBoxFor(row => row.)
+                
             </div>
             <div class="col-12 mb-3">
                 <label for="Gia" class="form-label">Giá</label>
