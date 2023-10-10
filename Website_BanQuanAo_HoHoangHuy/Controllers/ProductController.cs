@@ -16,5 +16,10 @@ namespace Website_BanQuanAo_HoHoangHuy.Controllers
             List<SanPham> sanPham = db.SanPhams.ToList();//Them chuc nang tim kiem
             return View(sanPham);
         }
+        public ActionResult T_Shirt()
+        {
+            List<SanPham> sanPham = db.SanPhams.Where(row => row.MaLoaiSP == 1).ToList();
+            return View(sanPham);
+        }
     }
 }

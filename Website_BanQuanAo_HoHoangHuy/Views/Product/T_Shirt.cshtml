@@ -1,0 +1,26 @@
+﻿@model List<Website_BanQuanAo_HoHoangHuy.Models.SanPham>
+
+@{
+    ViewBag.Title = "T_Shirt";
+}
+
+<h2>T_Shirt</h2>
+<table class="table table-hover">
+    <tr class="table-header">
+        <td>Ma san pham</td>
+        <td>Ten san pham</td>
+        <td>Gia</td>
+        <td>Kich thuoc</td>
+        <td>Mo ta</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaSanPham</td>
+            <td>@item.TenSanPham</td>
+            <td>@item.Gia</td>
+            <td>@item.KichThuoc</td>
+            <td>@item.MoTa</td>
+        </tr>
+    }
+</table>
