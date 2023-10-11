@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+<div style="width: 500px" class="mx-auto my-5">
+    <h2>Login</h2>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "row g-2" }))
+    {
+        <div class="col-12">
+            <label for="Username" class="form-label">Username</label>
+            <input type="text" name="Username" id="Username" placeholder="Username" class="form-control" />
+        </div>
+        <div class="col-12">
+            <label for="Password" class="form-label">Password</label>
+            <input type="password" name="Password" id="Password" placeholder="Password" class="form-control" />
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Login</button>
+            <a href="/Account/Register">Register User</a>
+        </div>
+    }
+</div>

@@ -45,9 +45,25 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="/Product/Polo/">Polo</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Thông tin tài khoản</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/Account/Logout">Logout</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/Account">Thông tin tài khoản</a>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/Account/Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/Account/Register">Register</a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">Giỏ hàng</a>
                         </li>
@@ -58,6 +74,10 @@
                     </form>
                 </div>
             </div>
+            @if(User.Identity.IsAuthenticated)
+            {
+                <h6 class="text-white">Hello @User.Identity.Name</h6>
+            }
         </nav>
         @RenderBody()
     </div>

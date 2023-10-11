@@ -1,0 +1,33 @@
+﻿@model Website_BanQuanAo_HoHoangHuy.ViewModel.Register
+@{
+    ViewBag.Title = "Register";
+}
+<div style="width: 500px;" class="mx-auto my-5">
+    <h2>Register</h2>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "row form g-2" }))
+    {
+        <div class="col-12">
+            <label for="Name" class="form-label">FullName</label>
+            <input type="text" name="Name" id="Name" placeholder="Name" class="form-control" />
+        </div>
+        <div class="col-12">
+            <label for="Username" class="form-label">Username</label>
+            <input type="text" name="Username" id="Username" placeholder="Username" class="form-control" />
+        </div>
+        <div class="col-12">
+            <label for="Email" class="form-label">Email</label>
+            <input type="email" name="Email" id="Email" placeholder="Email" class="form-control" />
+        </div>
+        <div class="col-12">
+            <label for="PhoneNumber" class="form-label">Phone number</label>
+            <input type="text" name="PhoneNumber" id="PhoneNumber" placeholder="PhoneNumber" class="form-control" />
+        </div>
+        <div class="col-12">
+            <label for="Password" class="form-label">Password</label>
+            <input type="password" name="Password" id="Password" placeholder="Password" class="form-control" />
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    }
+</div>

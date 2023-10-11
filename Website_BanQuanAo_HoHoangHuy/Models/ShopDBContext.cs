@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+
 namespace Website_BanQuanAo_HoHoangHuy.Models
 {
     public class ShopDBContext : DbContext
