@@ -84,9 +84,15 @@
                     <span class="num">01</span>
                     <span class="plus">+</span>
                 </div>
-                <div style="width: 70%;">
-                    <button class="btn btn-dark rounded-0 mx-3 px-4" style="padding: 12.35px;">Mua hàng</button>
-                </div>
+                <form action="/Product/AddToCart/" method="post">
+                    <input type="hidden" value="@Model.MaSanPham" name="MaSanPham" />
+                    <input type="hidden" value="@Model.Gia" name="Gia" />
+                    <input type="hidden" value="1" name="SoLuong" />
+                    <input type="hidden" value="@User.Identity.Name" name="KhachHang" />
+                    <div style="width: 70%;">
+                        <button type="submit" class="btn btn-dark rounded-0 mx-3 px-4" style="padding: 12.35px;">Mua hàng</button>
+                    </div>
+                </form>
             </div>
             <div class="m-2 mt-5">
                 <h6 class="my-3"><b>Hướng dẫn bảo quản sản phẩm</b></h6>

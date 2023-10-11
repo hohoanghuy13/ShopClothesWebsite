@@ -1,0 +1,91 @@
+﻿@model List<Website_BanQuanAo_HoHoangHuy.Models.ChiTietHoaDon>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row container mx-auto p-3 m-0">
+    <div class="col-md-6 p-0">
+        <div class="container" style="width: 100%;">
+            <h2>Thông tin vận chuyển</h2>
+            <form action="#" method="post" class="form">
+                <table class="table table-borderless">
+                    <tr>
+                        <td><input type="text" class="form-control rounded-pill"></td>
+                        <td><input type="text" class="form-control rounded-pill"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="text" class="form-control rounded-pill"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="text" class="form-control rounded-pill"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="text" class="form-control rounded-pill"></td>
+                    </tr>
+                </table>
+
+                <h3>Hình thức thanh toán</h3>
+                <!-- <input type="radio" name="thanhToan" id="cod">Thanh toán khi nhận hàng
+                <input type="radio" name="thanhToan" id="momo">Thanh toán MoMo
+                <input type="radio" name="thanhToan" id="momo">Chuyển khoản ngân hàng bằng quét mã QR -->
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Thanh toán khi nhận hàng
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                           checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Thanh toán bằng ví MoMo
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                           checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Thanh toán ngân hàng bằng quét mã QR
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6 p-0 d-flex justify-content-end">
+        <div class="" style="width: 70%;">
+            <h3>Giỏ hàng</h3>
+            <div class="gioHang">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Tên sản phẩm</th>
+                            <th>Kích thước</th>
+                            <th>Giá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.SanPham.TenSanPham</td>
+                                <td>@item.SanPham.KichThuoc</td>
+                                <td>@item.Gia</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <form action="#" class="form">
+                <input type="text" class="form-control rounded-pill" placeholder="Nhập mã giảm giá">
+                <button type="button" class="btn btn-dark text-white rounded-pill mt-3">Áp dụng</button>
+                <hr>
+                <p>Tạm tính</p>
+                <p>Giảm giá</p>
+                <p>Phí giao hàng</p>
+                <hr>
+                <p>Tổng</p>
+            </form>
+        </div>
+    </div>
+</div>
+
