@@ -32,8 +32,8 @@ namespace Website_BanQuanAo_HoHoangHuy.Controllers
                     sanPham = sanPham.OrderBy(row => row.Gia).ToList();
             }
             int NoOfRecordPerPage = 4;
-            double countFoods = sanPham.Count;
-            int NoOfPages = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(countFoods) / Convert.ToDouble(NoOfRecordPerPage)));
+            double countProducts = sanPham.Count;
+            int NoOfPages = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(countProducts) / Convert.ToDouble(NoOfRecordPerPage)));
             int NoOfSkip = (page - 1) * NoOfRecordPerPage;
             ViewBag.Page = page;
             ViewBag.NoOfPages = NoOfPages;
