@@ -1,85 +1,174 @@
 ﻿<!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    @*<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>*@
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        $(document).ready(function () {
+            $("#cart").click(
+                function () {
+                    $("#cartFrame").css("display", "block")
+                })
+            $("#cartNone").click(
+                function () {
+                    $("#cartFrame").css("display", "none")
+                })
+        })
+    </script>
+    <style>
+        .wrapper {
+            height: 50px;
+            width: 30%;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+            .wrapper span {
+                width: 100%;
+                text-align: center;
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+                .wrapper span.num {
+                    font-size: 16px;
+                    border-right: 2px solid rgba(0, 0, 0, 2);
+                    border-left: 2px solid rgba(0, 0, 0, 2);
+                }
+    </style>
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="https://www.coolmate.me/images/logo-coolmate-new.svg?v=1"
-                         alt="" style="max-width: 100%; height: auto; margin: 5px auto; width: 70px">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="/Home/">Trang chủ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="/Admin/Home/">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="/Product/">Sản phẩm</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="/Product/T_Shirt/">T-Shirt</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="/Product/Shirt/">Shirt</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="/Product/Polo/">Polo</a>
-                        </li>
-                        @if (User.Identity.IsAuthenticated)
-                        {
+    <div class="container-fluid p-0 position-relative">
+        <div class="bg-success position-absolute top-0 start-50" id="cartFrame" style="width: 300px; height: 100px; z-index: 1;display: none;"></div>
+        <div class="d-flex">
+            <nav class="navbar navbar-expand-xl navbar-dark bg-dark" style="width: 80%;">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Home"><img src="https://www.coolmate.me/images/logo-coolmate-new.svg?v=1" alt="" style="max-width: 100%; height: auto; margin: 5px auto; width: 70px;"></a>
+                    <div></div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="/Account/Logout">Logout</a>
+                                <a class="nav-link active text-white" aria-current="page" href="/Home/">Trang chủ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="/Account">Thông tin tài khoản</a>
+                                <a class="nav-link text-white" href="/Admin/Home/">Admin</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/Product/">Sản phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/Product/T_Shirt/">T-Shirt</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/Product/Shirt/">Shirt</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/Product/Polo/">Polo</a>
+                            </li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="/Account/Logout">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="/Account">Thông tin tài khoản</a>
+                                </li>
 
-                        }
-                        else
-                        {
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="/Account/Login">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="/Account/Register">Register</a>
+                                </li>
+                            }
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="/Account/Login">Login</a>
+                                <form class="d-flex ms-xl-5" action="/Product/Index/">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="@ViewBag.Search" name="search">
+                                    <button class="btn btn-outline-light" type="submit">Search</button>
+                                </form>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="/Account/Register">Register</a>
-                            </li>
-                        }
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="/Cart">Giỏ hàng</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" action="/Product/Index/">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="@ViewBag.Search" name="search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="bg-dark d-flex justify-content-end" style="width: 20%; padding: 15px 0px;">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <h6 class="text-white">Hello @User.Identity.Name</h6>
+                }
+                <img id="cartNone" width="50" height="50" src="https://img.icons8.com/ios/50/user-male-circle--v1.png" alt="user-male-circle--v1" />
+                <img id="cart" width="50" height="50" src="https://img.icons8.com/ios/50/shopping-bag--v1.png" alt="shopping-bag--v1" />
+            </div>
+        </div>
+        @RenderBody()
+        <div class="footer row text-white bg-dark p-3 m-0">
+            <div class="row col-md-12">
+                <div class="col-md-4">
+                    <h3>COOLMATE lắng nghe bạn!</h3>
+                    <p>
+                        Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến
+                        đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    Hotline <br>
+                    1900.7777.4444 - 028.9876.2627 <br>
+                    (8:30 - 22:30)
+                    <br>
+                    Email <br>
+                    MyClotheStore@meomeo.me
+                </div>
+                <div class="col-md-4">
+                    <a href="#"><img width="70" height="70" src="https://img.icons8.com/ios-filled/50/zalo.png" alt="zalo" /></a>
+                    <a href="#"><img width="70" height="70" src="https://img.icons8.com/ios/50/facebook--v1.png" alt="facebook--v1" /></a>
+                    <a href="#"><img width="70" height="70" src="https://img.icons8.com/ios/50/instagram-new--v1.png" alt="instagram-new--v1" /></a>
                 </div>
             </div>
-            @if(User.Identity.IsAuthenticated)
-            {
-                <h6 class="text-white">Hello @User.Identity.Name</h6>
-            }
-        </nav>
-        @RenderBody()
+            <hr>
+            <div class="row col-md-12">
+                <div class="col-md-3">
+                    MyClotheClub
+                    <p>Đăng ký thành viên</p>
+                    <p>Ưu đãi & Đặc quyền</p>
+                </div>
+                <div class="col-md-3">
+                    CHÍNH SÁCH
+                    <p>Chính sách đổi trả 60 ngày</p>
+                    <p>Chính sách khuyến mãi</p>
+                    <p>Chính sách bảo mật</p>
+                    <p>Chính sách giao hàng</p>
+                </div>
+                <div class="col-md-3">
+                    CHĂM SÓC KHÁCH HÀNG
+                    <p>Trải nghiệm mua sắm 100% hài lòng</p>
+                    <p>Hỏi đáp - FAQs</p>
+                </div>
+                <div class="col-md-3">
+                    ĐỊA CHỈ LIÊN HỆ
+                    <p>Văn phòng my clothe: 123 đường chân trời, tỉnh như mơ, thành phố Không Tên</p>
+                </div>
+            </div>
+            <hr>
+            <div class="infoDev col-md-12 text-center">Design by Hồ Hoàng Huy</div>
+        </div>
     </div>
 </body>
 </html>
