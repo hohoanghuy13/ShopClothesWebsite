@@ -3,18 +3,17 @@
 @{
     ViewBag.Title = "Detail";
 }
-<div class="container">
+<div class="container mb-5" style="height: 1000px;">
     <div class="linkBack">
         <ul class="nav">
-            <!-- Chỉ hiển thị khi có đường dẫn-->
             <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Trang chủ</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-white">/ @Model.LoaiSanPham.TenLoaiSP</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-white">/ @Model.TenSanPham</a></li>
         </ul>
     </div>
     <!--  -->
-    <div class="row">
-        <div class="col-md-6 d-flex">
+    <div class="row m-0">
+        <div class="col-lg-6 d-flex">
             <div class="list-img p-0" style="width: 20%;">
                 <ul class="p-0" style="list-style: none;">
                     <li class="nav-item border my-3" style="height: 100px; width: 100px;">
@@ -46,6 +45,9 @@
                 </div> -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
+                        <img src="@Model.HinhAnh" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
                         <img src="https://product.hstatic.net/1000281824/product/5a4a4fb53d084816ba7680c6de385414_021c797e83ba4ea09e24a9032df38ce3.jpeg"
                              class="d-block w-100" alt="...">
                     </div>
@@ -70,8 +72,7 @@
                 </button>
             </div>
         </div>
-        <div class="col-md-6 col-sm-12 col-xs-12 d-flex-col">
-            <!--All nội dung m-2  -->
+        <div class="col-lg-6 col-sm-12 col-xs-12 d-flex-col">
             <h3 class="m-2"><b>@Model.TenSanPham</b></h3>
             <h3 class="m-2 text-danger"><b>@Model.Gia</b></h3>
             <div class="m-2 d-flex">
@@ -90,7 +91,7 @@
                     <input type="hidden" value="1" name="SoLuong" />
                     <input type="hidden" value="@User.Identity.Name" name="KhachHang" />
                     <div style="width: 70%;">
-                        <button type="submit" class="btn btn-dark rounded-0 mx-3 px-4" style="padding: 12.35px;">Mua hàng</button>
+                        <button type="submit" class="btn btn-dark rounded-0 mx-3 px-4" style="padding: 12.35px;">Mua</button>
                     </div>
                 </form>
             </div>

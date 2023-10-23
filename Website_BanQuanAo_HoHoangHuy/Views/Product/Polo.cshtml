@@ -3,41 +3,52 @@
 @{
     ViewBag.Title = "Polo";
 }
-<div class="container">
-    <div class="p-4">
-        <h2>Áo Polo</h2>
+@{
+    int next = ViewBag.Page + 1;
+    int pre = ViewBag.Page - 1;
+    if (next > ViewBag.NoOfPages)
+    {
+        next = ViewBag.NoOfPages;
+    }
+    if (pre < 1)
+    {
+        pre = 1;
+    }
+}
+<div class="p-4">
+    <h2>Áo Polo</h2>
+</div>
+<div class="row m-0">
+    <div class="col-md-3 d-flex">
+        <img width="30" height="30" src="https://img.icons8.com/ios/50/filter--v1.png" alt="filter--v1" />
+        <h5>Bộ lọc</h5>
     </div>
-    <div class="row">
-        <div class="col-md-3 d-flex">
-            <img width="30" height="30" src="https://img.icons8.com/ios/50/filter--v1.png" alt="filter--v1" />
-            <h5>Bộ lọc</h5>
-        </div>
-        <div class="col-md-3">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Lọc giá</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-        <div class="col-md-3">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Kích thước</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-        <div class="col-md-3">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Chưa biết</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
+    <div class="col-md-3">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Lọc giá</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
     </div>
-    <div class="row my-3 ">
+    <div class="col-md-3">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Kích thước</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Chưa biết</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </div>
+</div>
+@*<div class="row my-3 ">
         @foreach (var item in Model)
         {
             <div class="col-md-3 g-3">
@@ -53,16 +64,32 @@
                 </div>
             </div>
         }
-    </div>
-    <div class="container d-flex justify-content-center">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link text-dark" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">Next</a></li>
-            </ul>
-        </nav>
-    </div>
+    </div>*@
+<div class="row my-3 g-2 p-2 m-0">
+    @foreach (var item in Model)
+    {
+        <div class="col-xxl-2 col-md-3 col-6">
+            <div class="card bg-info border-0" style="width: 100%;">
+                <img src="@item.HinhAnh" class="card-img-top rounded" alt="Ao thun den">
+                <div class="card-body">
+                    <h5 class="card-title">@item.TenSanPham</h5>
+                    <p class="card-text">Xanh đen</p>
+                    <p class="card-text"><strong>@item.Gia</strong></p>
+                    <a href="/Product/Detail/@item.MaSanPham" class="btn btn-primary">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="container d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link text-dark" href="/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@pre">Previous</a></li>
+            @for (int i = 0; i < ViewBag.NoOfPages; i++)
+            {
+                <li class="page-item"><a class="page-link text-dark" href="/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@(i + 1)">@(i + 1)</a></li>
+            }
+            <li class="page-item"><a class="page-link text-dark" href="/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@next">Next</a></li>
+        </ul>
+    </nav>
 </div>
