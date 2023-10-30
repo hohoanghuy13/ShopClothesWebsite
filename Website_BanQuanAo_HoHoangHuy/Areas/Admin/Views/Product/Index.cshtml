@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Index";
 }
-@*Không nên chạy từ trang admin*@
 @{
     string icon = "";
     if (ViewBag.Icon == "fa fa-sort-down")
@@ -28,55 +27,59 @@
     }
 }
 <div class="p-3">
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <form class="d-flex" action="/Admin/Product/Index">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" value="@ViewBag.Search">
-                <button type="submit" class="btn btn-outline-success">Search</button>
-            </form>
+    <div class="d-flex justify-content-between">
+        <div class="pt-2">
+            <a href="/Admin/Product/Create/" class="btn btn-dark">Thêm sản phẩm</a>
         </div>
-    </nav>
-    <a href="/Admin/Product/Create/" class="btn btn-primary">Thêm sản phẩm</a>
+        <nav class="navbar navbar-light bg-none">
+            <div class="container-fluid">
+                <form class="d-flex" action="/Admin/Product/Index">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" value="@ViewBag.Search">
+                    <button type="submit" class="btn btn-outline-dark">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
     <table class="table table-hover">
         <thead>
             <tr>
                 <th>
-                    <a href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=MaSanPham&Icon=@icon&page=1">Mã sản phẩm</a>
+                    <a href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=MaSanPham&Icon=@icon&page=1" class="text-dark" style="text-decoration: none">Mã sản phẩm</a>
                     @if (ViewBag.Sort == "MaSanPham")
                     {
                         <i class="@ViewBag.Icon" style="color: #ffc107"></i>
                     }
                 </th>
                 <th>
-                    <a href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=TenSanPham&Icon=@icon&page=1">Tên sản phẩm</a>
+                    <a href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=TenSanPham&Icon=@icon&page=1" class="text-dark" style="text-decoration: none">Tên sản phẩm</a>
                     @if (ViewBag.Sort == "TenSanPham")
                     {
                         <i class="@ViewBag.Icon" style="color: #ffc107"></i>
                     }
                 </th>
                 <th>
-                    <a href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=KichThuoc&Icon=@icon&page=1">Kích thước</a>
+                    <a href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=KichThuoc&Icon=@icon&page=1" class="text-dark" style="text-decoration: none">Kích thước</a>
                     @if (ViewBag.Sort == "KichThuoc")
                     {
                         <i class="@ViewBag.Icon" style="color: #ffc107"></i>
                     }
                 </th>
                 <th>
-                    <a href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=Gia&Icon=@icon&page=1">Giá</a>
+                    <a href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=Gia&Icon=@icon&page=1" class="text-dark" style="text-decoration: none">Giá</a>
                     @if (ViewBag.Sort == "Gia")
                     {
                         <i class="@ViewBag.Icon" style="color: #ffc107"></i>
                     }
                 </th>
                 <th>
-                    <a href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=SoLuongKho&Icon=@icon&page=1">Số lượng tồn kho</a>
+                    <a href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=SoLuongKho&Icon=@icon&page=1" class="text-dark" style="text-decoration: none">Số lượng tồn kho</a>
                     @if (ViewBag.Sort == "SoLuongKho")
                     {
                         <i class="@ViewBag.Icon" style="color: #ffc107"></i>
                     }
                 </th>
                 <th>
-                    <a href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=MaLoaiSP&Icon=@icon&page=1">Loại sản phẩm</a>
+                    <a href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=MaLoaiSP&Icon=@icon&page=1" class="text-dark" style="text-decoration: none">Loại sản phẩm</a>
                     @if (ViewBag.Sort == "MaLoaiSP")
                     {
                         <i class="@ViewBag.Icon" style="color: #ffc107"></i>
@@ -90,28 +93,30 @@
             {
                 <tr>
                     <td>@item.MaSanPham</td>
-                    <td><a href="/Admin/Product/Detail/@item.MaSanPham" class="link">@item.TenSanPham</a></td>
+                    <td><a href="/Admin/Product/Detail/@item.MaSanPham" class="text-dark" style="text-decoration: none">@item.TenSanPham</a></td>
                     <td>@item.KichThuoc</td>
                     <td>@item.Gia</td>
                     <td>@item.SoLuongKho</td>
                     <td>@item.LoaiSanPham.TenLoaiSP</td>
                     <td>
-                        <a href="/Admin/Product/Edit/@item.MaSanPham" class="link">Sửa</a>
-                        <a href="/Admin/Product/Delete/@item.MaSanPham" class="link">Xóa</a>
+                        <a href="/Admin/Product/Edit/@item.MaSanPham" class="text-dark" style="text-decoration: none">Sửa</a>
+                        <a href="/Admin/Product/Delete/@item.MaSanPham" class="text-dark" style="text-decoration: none">Xóa</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@pre">Previous</a></li>
-            @for (int i = 0; i < ViewBag.NoOfPages; i++)
-            {
-                <li class="page-item"><a class="page-link" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@(i + 1)">@(i + 1)</a></li>
-            }
-            <li class="page-item"><a class="page-link" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@next">Next</a></li>
-        </ul>
-    </nav>
+    <div class="container d-flex justify-content-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link text-dark" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@pre">Previous</a></li>
+                @for (int i = 0; i < ViewBag.NoOfPages; i++)
+                {
+                    <li class="page-item"><a class="page-link text-dark" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@(i + 1)">@(i + 1)</a></li>
+                }
+                <li class="page-item"><a class="page-link text-dark" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@next">Next</a></li>
+            </ul>
+        </nav>
+    </div>
 </div>
 

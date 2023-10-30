@@ -13,11 +13,11 @@ namespace Website_BanQuanAo_HoHoangHuy.Areas.Admin.Controllers
     {
         ShopDBContext db = new ShopDBContext();
         // GET: Admin/Category
-        public ActionResult Index()
+        public ActionResult Index(string search = "")
         {
-            List<LoaiSanPham> loaiSP = db.LoaiSanPhams.ToList();
-            ViewBag.LoaiSP = loaiSP;
-            return View();
+            List<LoaiSanPham> loaiSP = db.LoaiSanPhams.Where(row => row.TenLoaiSP.Contains(search)).ToList();
+            ViewBag.Search = search;
+            return View(loaiSP);
         }
         public ActionResult Create()
         {

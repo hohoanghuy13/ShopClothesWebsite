@@ -25,10 +25,10 @@
     </ul>
 </div>
 <hr />
-<div class="banner">
+@*<div class="banner">
     <img src="https://file.hstatic.net/1000281824/file/cover_1_87a6ac90b1c94059a093003239175873.jpg" alt=""
          class="w-100">
-</div>
+</div>*@
 <div class="p-4">
     <h2>Tất cả sản phẩm</h2>
 </div>
@@ -75,7 +75,7 @@
                 </div>
             </div>*@
         <div class="col-xxl-2 col-md-3 col-6">
-            <div class="card bg-info border-0" style="width: 100%;">
+            <div class="card border-0" style="width: 100%;">
                 <img src="@item.HinhAnh" class="card-img-top rounded" alt="Ao thun den">
                 <div class="card-body">
                     <h5 class="card-title">@item.TenSanPham</h5>
@@ -90,12 +90,12 @@
 <div class="container d-flex justify-content-center">
     <nav aria-label="Page navigation example">
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@pre">Previous</a></li>
+            <li class="page-item"><a class="page-link text-dark" href="/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@pre">Previous</a></li>
             @for (int i = 0; i < ViewBag.NoOfPages; i++)
             {
-                <li class="page-item"><a class="page-link" href="/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@(i + 1)">@(i + 1)</a></li>
+                <li class="page-item"><a class="page-link text-dark" href="/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@(i + 1)">@(i + 1)</a></li>
             }
-            <li class="page-item"><a class="page-link" href="/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@next">Next</a></li>
+            <li class="page-item"><a class="page-link text-dark" href="/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@next">Next</a></li>
         </ul>
     </nav>
 </div>

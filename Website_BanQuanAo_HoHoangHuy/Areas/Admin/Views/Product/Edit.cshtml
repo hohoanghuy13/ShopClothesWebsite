@@ -7,7 +7,7 @@
     <form action="/Admin/Product/Edit" method="post">
         <input type="hidden" name="MaSanPham" value="@Model.MaSanPham" />
         <div class="row">
-            <div class="col-12 mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="MaLoaiSP" class="form-label">Loại sản phẩm</label>
                 <select id="MaLoaiSP" name="MaLoaiSP" class="form-control">
                     @foreach (var item in ViewBag.LoaiSP)
@@ -20,15 +20,15 @@
                     }
                 </select>
             </div>
-            <div class="col-12 mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="TenSanPham" class="form-label">Tên sản phẩm</label>
                 <input type="text" id="TenSanPham" name="TenSanPham" placeholder="Tên sản phẩm" class="form-control" value="@Model.TenSanPham"/>
             </div>
-            <div class="col-12 mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="Gia" class="form-label">Giá</label>
                 <input type="text" id="Gia" name="Gia" placeholder="Giá" class="form-control" value="@Model.Gia"/>
             </div>
-            <div class="col-12 mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="KichThuoc" class="form-label">Kích thước</label>
                 <select class="form-control" id="KichThuoc" name="KichThuoc">
                     <option value="@Model.KichThuoc" selected>@Model.KichThuoc</option>
@@ -38,11 +38,11 @@
                     <option value="XL">XL</option>
                 </select>
             </div>
-            <div class="col-12 mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="HinhAnh" class="form-label">Hình ảnh sản phẩm</label>
                 <input type="text" id="HinhAnh" name="HinhAnh" placeholder="Hình ảnh" class="form-control" value="@Model.HinhAnh"/>
             </div>
-            <div class="col-12 mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="SoLuongKho" class="form-label">Số lượng nhập kho</label>
                 <input type="number" id="SoLuongKho" name="SoLuongKho" placeholder="Số lượng nhập kho" class="form-control" value="@Model.SoLuongKho"/>
             </div>
@@ -51,7 +51,7 @@
                 <textarea id="MoTa" name="MoTa" placeholder="Mô tả sản phẩm" class="form-control" cols="10" rows="10">@Model.MoTa</textarea>
             </div>
             <div class="col-12 mb-3">
-                <button type="submit" class="btn btn-primary">Sửa</button>
+                <button type="submit" class="btn btn-dark">Sửa</button>
                 <a href="/Admin/Product/Index/" class="btn btn-light">Trở lại trang chủ</a>
             </div>
         </div>
