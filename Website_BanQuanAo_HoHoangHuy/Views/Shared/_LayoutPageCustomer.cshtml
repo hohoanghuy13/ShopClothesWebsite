@@ -9,16 +9,16 @@
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
-        $(document).ready(function () {
-            $("#cart").click(
-                function () {
-                    $("#cartFrame").css("display", "block")
-                })
-            $("#cartNone").click(
-                function () {
-                    $("#cartFrame").css("display", "none")
-                })
-        })
+        //$(document).ready(function () {
+        //    $("#cart").click(
+        //        function () {
+        //            $("#cartFrame").css("display", "block")
+        //        })
+        //    $("#cartNone").click(
+        //        function () {
+        //            $("#cartFrame").css("display", "none")
+        //        })
+        //})
     </script>
     <style>
         .wrapper {
@@ -66,9 +66,6 @@
                                 <a class="nav-link active text-white" aria-current="page" href="/Home/">Trang chủ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="/Admin/Home/">Admin</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link text-white" href="/Product/">Sản phẩm</a>
                             </li>
                             <li class="nav-item">
@@ -85,10 +82,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-white" href="/Account/Logout">Logout</a>
                                 </li>
-                                <li class="nav-item">
+                                @*<li class="nav-item">
                                     <a class="nav-link text-white" href="/Account">Thông tin tài khoản</a>
-                                </li>
-
+                                </li>*@
                             }
                             else
                             {
@@ -113,9 +109,13 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <h6 class="text-white">Hello @User.Identity.Name</h6>
+                    <a href="/Account/"><img id="cartNone" width="50" height="50" src="https://img.icons8.com/ios/50/user-male-circle--v1.png" alt="user-male-circle--v1" /></a>
                 }
-                <img id="cartNone" width="50" height="50" src="https://img.icons8.com/ios/50/user-male-circle--v1.png" alt="user-male-circle--v1" />
-                <img id="cart" width="50" height="50" src="https://img.icons8.com/ios/50/shopping-bag--v1.png" alt="shopping-bag--v1" />
+                else
+                {
+                    <a href="/Account/Login"><img id="cartNone" width="50" height="50" src="https://img.icons8.com/ios/50/user-male-circle--v1.png" alt="user-male-circle--v1" /></a>
+                }
+                <a href="/Cart/"><img id="cart" width="50" height="50" src="https://img.icons8.com/ios/50/shopping-bag--v1.png" alt="shopping-bag--v1" /></a>
             </div>
         </div>
         @RenderBody()

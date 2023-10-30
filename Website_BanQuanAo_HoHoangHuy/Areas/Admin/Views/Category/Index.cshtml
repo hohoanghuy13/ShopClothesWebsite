@@ -1,18 +1,22 @@
-﻿
+﻿@model List<Website_BanQuanAo_HoHoangHuy.Models.LoaiSanPham>
 @{
     ViewBag.Title = "Index";
 }
 
-<div class="container mx-auto">
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <form class="d-flex" action="/Admin/Category/Index">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" value="@ViewBag.Search">
-                <button type="submit" class="btn btn-outline-success">Search</button>
-            </form>
+<div class="container-fluid mx-auto">
+    <div class="d-flex justify-content-between">
+        <div class="pt-2">
+            <a href="/Admin/Category/Create/" class="btn btn-dark">Thêm loại sản phẩm</a>
         </div>
-    </nav>
-    <a href="/Admin/Category/Create/" class="btn btn-primary">Thêm sản phẩm</a>
+        <nav class="navbar navbar-light bg-none">
+            <div class="container-fluid">
+                <form class="d-flex" action="/Admin/Category/Index">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" value="@ViewBag.Search">
+                    <button type="submit" class="btn btn-outline-dark">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -22,14 +26,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var item in ViewBag.LoaiSP)
+            @foreach(var item in Model)
             {
                 <tr>
                     <td>@item.MaLoaiSP</td>
                     <td>@item.TenLoaiSP</td>
                     <td>
-                        <a href="/Admin/Category/Edit/@item.MaLoaiSP" class="link">Sửa</a>
-                        <a href="/Admin/Category/Delete/@item.MaLoaiSP" class="link">Xóa</a>
+                        <a href="/Admin/Category/Edit/@item.MaLoaiSP" class="text-dark" style="text-decoration: none">Sửa</a>
+                        <a href="/Admin/Category/Delete/@item.MaLoaiSP" class="text-dark" style="text-decoration: none">Xóa</a>
                     </td>
                 </tr>
             }    

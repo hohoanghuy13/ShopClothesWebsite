@@ -32,7 +32,7 @@ namespace Website_BanQuanAo_HoHoangHuy.Controllers
         [HttpPost]
         public ActionResult Register(Register register)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid || register.Password != null)
             {
                 var AppDbContext = new AppDbContext();
                 var userStore = new AppUserStore(AppDbContext);
@@ -69,7 +69,8 @@ namespace Website_BanQuanAo_HoHoangHuy.Controllers
             var AppDbContext = new AppDbContext();
             var userStore = new AppUserStore(AppDbContext);
             var userManager = new AppUserManager(userStore);
-
+            if(login.Username == null)
+                return View();
             var user = userManager.Find(login.Username, login.Password);
             if (user != null)
             {

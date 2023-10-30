@@ -3,12 +3,26 @@
 @{
     ViewBag.Title = "Detail";
 }
+<script>
+    var i = 0
+    $(document).ready(function () {
+        $(".minus").click(function () {
+            if (i > 0)
+                i--;
+            $(".num").text(i)
+        })
+        $(".plus").click(function () {
+            i++;
+            $(".num").text(i)
+        })
+    })
+</script>
 <div class="container mb-5" style="height: 1000px;">
     <div class="linkBack">
         <ul class="nav">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Trang chủ</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">/ @Model.LoaiSanPham.TenLoaiSP</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">/ @Model.TenSanPham</a></li>
+            <li class="nav-item"><a href="/Product/Index/" class="nav-link px-2 text-dark">Trang chủ</a></li>
+            <li class="nav-item"><a href="/Product/@Model.LoaiSanPham.TenLoaiSP" class="nav-link px-2 text-dark">/ @Model.LoaiSanPham.TenLoaiSP</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">/ @Model.TenSanPham</a></li>
         </ul>
     </div>
     <!--  -->
@@ -19,19 +33,19 @@
                     <li class="nav-item border my-3" style="height: 100px; width: 100px;">
                         <a href="#">
                             <img src="https://product.hstatic.net/1000281824/product/5a4a4fb53d084816ba7680c6de385414_021c797e83ba4ea09e24a9032df38ce3_compact.jpeg"
-                                 alt="" class="mw-100 mh-100">
+                                 alt="" class="mw-100 mh-100 active" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1">
                         </a>
                     </li>
                     <li class="nav-item border my-3" style="height: 100px; width: 100px;">
                         <a href="#">
-                            <img src="https://product.hstatic.net/1000281824/product/5a4a4fb53d084816ba7680c6de385414_021c797e83ba4ea09e24a9032df38ce3_compact.jpeg"
-                                 alt="" class="mw-100 mh-100">
+                            <img src="https://product.hstatic.net/1000281824/product/6a35fa07c2534599b66341806c506dab_05e77ac4c9fb4f3e8cb558a010461998_compact.jpeg"
+                                 alt="" class="mw-100 mh-100" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
                         </a>
                     </li>
                     <li class="nav-item border my-3" style="height: 100px; width: 100px;">
                         <a href="#">
-                            <img src="https://product.hstatic.net/1000281824/product/5a4a4fb53d084816ba7680c6de385414_021c797e83ba4ea09e24a9032df38ce3_compact.jpeg"
-                                 alt="" class="mw-100 mh-100">
+                            <img src="https://product.hstatic.net/1000281824/product/z4072754167909_ba003c2776357c34d6f992d0e18844a8_a2cf6a6353cf40a3ad15f6c5edbea592_compact.jpg"
+                                 alt="" class="mw-100 mh-100" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
                         </a>
                     </li>
                 </ul>
@@ -76,13 +90,24 @@
             <h3 class="m-2"><b>@Model.TenSanPham</b></h3>
             <h3 class="m-2 text-danger"><b>@Model.Gia</b></h3>
             <div class="m-2 d-flex">
-                <p style="margin-right: 100px;">SIZE: @Model.KichThuoc</p>
+                <p class="me-3 my-auto">SIZE:</p>
+                <!-- <div class="border text-center p-0 mx-2" style="width: 30px; height: 30px;">S</div>
+                <div class="border text-center p-0 mx-2" style="width: 30px; height: 30px;">M</div>
+                <div class="border text-center p-0 mx-2" style="width: 30px; height: 30px;">L</div> -->
+                <input type="radio" class="btn btn-check" name="size" value="s" id="size1">
+                <label for="size1" class="btn btn-outline-dark me-2">S</label>
+
+                <input type="radio" class="btn btn-check" name="size" value="l" id="size2">
+                <label for="size2" class="btn btn-outline-dark me-2">L</label>
+
+                <input type="radio" class="btn btn-check" name="size" value="xl" id="size3">
+                <label for="size3" class="btn btn-outline-dark me-2">XL</label>
             </div>
             <hr>
             <div class="m-2 d-flex">
                 <div class="wrapper">
                     <span class="minus">-</span>
-                    <span class="num">01</span>
+                    <span class="num">1</span>
                     <span class="plus">+</span>
                 </div>
                 <form action="/Product/AddToCart/" method="post">
@@ -105,6 +130,7 @@
                     Hạn chế sử dụng máy sấy và ủi (nếu có) chỉ nên ủi lên vải hoặc sử dụng bàn ủi
                     hơi nước ở nhiệt độ thích hợp.
                 </p>
+                <pre>@Model.MoTa</pre>
             </div>
         </div>
     </div>
